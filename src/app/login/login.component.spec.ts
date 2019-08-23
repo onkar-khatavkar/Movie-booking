@@ -11,6 +11,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { ThankYouComponent } from '../thank-you/thank-you.component';
 import { BookTicketComponent } from '../book-ticket/book-ticket.component';
 import { AppComponent } from '../app.component';
+import { TicketPreviewComponent } from '../ticket-preview/ticket-preview.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -25,6 +26,7 @@ describe('LoginComponent', () => {
         LoginComponent,
         ThankYouComponent,
         BookTicketComponent,
+        TicketPreviewComponent,
         AppComponent
       ],
       imports: [
@@ -68,8 +70,8 @@ describe('LoginComponent', () => {
   describe('findOne', () => {
     it('should return a single user', () => {
       const userResponse = {
-        username: 'a',
-        password: 'a'
+        username: 'v',
+        password: 'v'
       };
       spyOn(ticketService, 'validateLogin').and.returnValue(of(userResponse));
 
@@ -80,11 +82,11 @@ describe('LoginComponent', () => {
     });
   it('Entering email and password emits loggedIn event', () => {
       fixture.detectChanges();
-      loginEL.nativeElement.value = 'a';
-      passwordEL.nativeElement.value = 'a';
+      loginEL.nativeElement.value = 'v';
+      passwordEL.nativeElement.value = 'v';
       // Now we can check to make sure the emitted value is correct
-      expect(login.username).toBe('a');
-      expect(login.password).toBe('a');
+      expect(login.username).toBe('v');
+      expect(login.password).toBe('v');
   });
   it('should create', () => {
     expect(component).toBeTruthy();

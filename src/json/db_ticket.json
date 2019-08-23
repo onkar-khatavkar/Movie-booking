@@ -1,86 +1,28 @@
 {
   "loginCredentials": {
-    "username": "a",
-    "password": "a"
+    "username": "v",
+    "password": "v"
   },
   "bookedTicket": [
     {
-      "seatNo": "C8",
-      "showName": "2",
+      "seatNo": "A7",
+      "showName": "Angry Birds 2",
       "id": 1
     },
     {
-      "seatNo": "B7",
-      "showName": "2",
+      "seatNo": "B2",
+      "showName": "Angry Birds 2",
       "id": 2
     },
     {
-      "seatNo": "B9",
-      "showName": "1",
+      "seatNo": "B6",
+      "showName": "Angry Birds 2",
       "id": 3
     },
     {
-      "seatNo": "B7",
-      "showName": "1",
-      "id": 4
-    },
-    {
-      "seatNo": "A5",
-      "showName": "1",
-      "id": 5
-    },
-    {
-      "seatNo": "B4",
-      "showName": "1",
-      "id": 6
-    },
-    {
-      "seatNo": "C6",
-      "showName": "1",
-      "id": 7
-    },
-    {
-      "seatNo": "A2",
-      "showName": "1",
-      "id": 8
-    },
-    {
-      "seatNo": "C9",
-      "showName": "1",
-      "id": 9
-    },
-    {
-      "seatNo": "A8",
-      "showName": "1",
-      "id": 10
-    },
-    {
-      "seatNo": "A9",
-      "showName": "1",
-      "id": 11
-    },
-    {
       "seatNo": "B8",
-      "showName": "1",
-      "id": 12
-    },
-    {
-      "seatNo": "B9",
-      "id": 13
-    },
-    {
-      "seatNo": "A8",
-      "id": 14
-    },
-    {
-      "seatNo": "A7",
-      "showName": "Angry Birds 2",
-      "id": 15
-    },
-    {
-      "seatNo": "C8",
-      "showName": "Angry Birds 2",
-      "id": 16
+      "showName": "Mission Mangal",
+      "id": 4
     }
   ]
 }

@@ -1,0 +1,21 @@
+
+Instruction to run the Project
+
+1 . Go To project folder 
+
+	cmd > npm install 
+
+2 . Go To project folder type following command from terminal or command window
+
+	cmd > json-server --watch src/json/db_ticket.json --port 3000			---- IMPORTANT ----
+	
+
+3. open another terminal or command window 
+	 
+	cmd > ng serve
+	
+
+4. In case of recheck
+
+    ---- Just extract and replace db_ticket.json file from github file or
+    ---- blank out the "bookedSeats" :[] array 

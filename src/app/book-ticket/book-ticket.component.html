@@ -1,0 +1,97 @@
+<div class="content">
+    <!---728x90--->
+  
+    <h1>Movie Ticket Booking </h1>
+    <!---728x90--->
+  
+    <div class="main">
+      <h2>Multiplex Theatre Showing Screen Audi {{screenNumber}}</h2>
+      <div class="demo">
+        <div class="col-lg-12 row">
+        <div class="col-lg-6" >
+            <div id="seat-map">
+                <div class="front">SCREEN</div>					
+              </div>
+      
+          <div  *ngFor="let seatrow of seatmap " >
+              <div class="col-12 pricing-label" *ngIf="seatChartConfig?.showRowWisePricing && seatrow.seatPricingInformation != ''">{{seatrow.seatPricingInformation}}</div>
+              <div class="seatrow container">
+                  <div *ngIf="seatChartConfig?.showRowsLabel">
+                      <div class="row-label" >{{seatrow.seatRowLabel}} </div>
+                  </div>
+                  
+                  <div *ngFor="let seatobj of seatrow.seats">
+                      <div class="seat-item seat-space" style="color:white ; background-color:white" *ngIf="seatobj.seatLabel == ''">  &nbsp; </div>
+                      <div tooltip="Seat : {{seatobj.seatLabel}} | Price : ₹.{{seatobj.price}}" placement="top"
+                      [ngClass]="{ 'seat-item' : true , 'seat-available' : seatobj.status == 'available' ,'seat-booked' : seatobj.status == 'booked' ,'seat-unavailable' : seatobj.status == 'unavailable' }" 
+                       (click)="selectSeat(seatobj)" *ngIf="(seatobj.status == 'available' || seatobj.status == 'booked' )&& seatobj.seatLabel != ''">{{seatobj.seatNo}}</div>
+                       
+                      <div tooltip="Seat not available" placement="top"
+                      [ngClass]="{ 'seat-item' : true , 'seat-unavailable' : true }" 
+                      *ngIf="seatobj.status == 'unavailable' && seatobj.seatLabel != ''">{{seatobj.seatNo}}</div>
+                  </div>
+              </div>
+          </div>        
+        </div>
+        <div class="verticalLine">
+        </div>
+        <div class="col-lg-5 booking-details">
+          <ul class="book-left">
+            <li>Movie </li>
+            <li>Time </li>
+            <li>Tickets</li>
+            <li>Seats :</li>
+            <li>Total: </li>
+          </ul>
+          <ul class="book-right">
+            <li>:   
+               
+            <select [(ngModel)]="selectedMovie" (change)='onMovieChange($event)' [ngClass]="{'login-error':selectedMovie == 0}">
+                <option [value]="0">Select</option>
+                <option [value]="1">Angry Birds 2</option>
+                <option [value]="2">Mission Mangal</option>
+                <option [value]="3">Batla House</option>
+            </select>
+          </li>
+            <li>:
+              <select [(ngModel)]="movieTimeDropdown" [ngClass]="{'login-error':movieTimeDropdown == 0}">
+                <option value="0" >Select</option>
+                <option value="1">9:15 AM </option>
+                <option value="2">12:15 PM </option>
+                <option value="3">5:00 PM </option>
+            </select>
+          </li>
+            <li>: <span id="counter">{{ cart?.selectedSeats?.length }}</span></li>
+            <li class="row selected-seat-id">:&nbsp;  
+              <span *ngFor="let seatLabel of cart.selectedSeats" class="badge badge-primary">{{seatLabel}}</span>
+            </li>
+            <li>: <b><i>₹ </i><span id="total">{{cart.subTotal}}</span></b>       
+              <button style='border-radius: 32%;margin-left: 10%;' tooltip="Click here to see total cost (tax including)" (click)="ticketTotalModal.open()" class="info-button btn btn-primary info-button" >
+              <i class="fa fa-info-circle" ></i>
+            </button>
+          <modal #ticketTotalModal>
+            <ng-template #modalHeader><h3>Total Booking Cost</h3></ng-template>
+            <ng-template #modalBody>
+              <p>1. SubTotal : ₹ {{cart.totalamount}}</p>
+              <p>2. Service Tax @14%: ₹ {{(cart.totalamount*14)/100}}</p>
+              <p>3. Swachh Bharat Cess @0.5%: ₹ {{(cart.totalamount*0.5)/100}}</p>
+              <p>4. Krishi Kalyan Cess @0.5%: ₹  {{(cart.totalamount*0.5)/100}}</p>
+            </ng-template>
+          </modal>
+            </li>
+          </ul>
+          <div class="clear"></div>
+          <ul id="selected-seats" class="scrollbar scrollbar1" tabindex="5000" style="overflow: hidden; outline: none;"></ul>
+          <button [disabled]="cart?.selectedSeats?.length == 0" [ngClass]="{'checkout-button':cart?.selectedSeats?.length != 0 && movieTimeDropdown !=0}" type="button"  (click)="processBooking()" class="checkout-button">Book Now</button>	
+            <div id="legend"></div>
+        </div>
+      </div>
+        <div style="clear:both"></div>
+        </div>
+  
+    </div>
+    <!---728x90--->
+  
+    <p class="copy_rights">© 2019 Movie Ticket Booking. All Rights Reserved </p>
+  </div>
+  

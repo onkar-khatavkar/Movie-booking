@@ -1,0 +1,50 @@
+
+<!-- main -->
+<div class="loginlayouts-main"> 
+    <div class="bg-layer">
+      <h1>Login form</h1>
+      <div class="header-main">
+        <div class="main-icon">
+          <span class="fa fa-eercast"></span>
+        </div>
+        <div class="header-left-bottom">
+          <form >
+            <div class="icon1" [ngClass]="{'login-error':validUser}">
+              <span class="fa fa-user"></span>
+              <input type="email"  [ngModelOptions]="{standalone: true}" [(ngModel)]="login.username" placeholder="Email Address" required=""/>
+            </div>
+            <div class="icon1" [ngClass]="{'login-error':validPassword}">
+              <span class="fa fa-lock"></span>
+              <input type="password"   [ngModelOptions]="{standalone: true}" [(ngModel)]="login.password"  placeholder="Password" required=""/>
+            </div>
+            <div class="login-check" style="display:none">
+               <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Keep me logged in</label>
+            </div>
+            <div class="bottom center-align">
+              <button class="btn" (click)="onSignin()">Log In</button>
+            </div>
+            <div class="links" >       
+              <p><a></a></p>       
+              <p class="right"><a>Forgot Password?</a></p>
+              <div class="clear"></div>
+            </div>
+          </form>	
+        </div>
+        <div class="social">
+          <ul>
+            <li>or login using : </li>
+            <li><a class="facebook"><span class="fa fa-facebook"></span></a></li>
+            <li><a class="twitter"><span class="fa fa-twitter"></span></a></li>
+            <li><a class="google"><span class="fa fa-google-plus"></span></a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- copyright -->
+      <div class="copyright">
+        <p>© 2019 Login Form . All rights reserved | Design by <a class="mail-to" target="_top" href="mailto:khatavkarbd@gmail.com?Subject='Request to meet'">Khatavkarbd@gmail.com</a></p>
+      </div>
+      <!-- //copyright --> 
+    </div>
+  </div>	
+  <!-- //main -->
